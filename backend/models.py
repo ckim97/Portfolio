@@ -19,6 +19,7 @@ class Projects(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String)
-    link = db.Column(db.String)
     description = db.Column(db.String)
-    stack = db.Column(db.String)
+    link = db.Column(db.String)
+    demo = db.Column(db.String)
+    stack = db.Column(db.JSON)
