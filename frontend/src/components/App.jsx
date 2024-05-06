@@ -1,15 +1,35 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import NavBar from '../NavBar'
+import Project from './Project'
+
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [projects, setProjects] = useState([])
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5555/projects')
+      .then(r => r.json())
+      .then((data) => {
+        console.log(data)
+        setProjects(data)
+        console.log(projects)
+      })
+  }, [])
+
+  const renderProjects = projects.map((project) => <Project key={project.id} project={project}/>)
+
 
   return (
     <>
     <header>
-      <NavBar/>
+      <NavBar className="navbar"/>
     </header>
+    <body>
+      <h1>Hello</h1>
+      {renderProjects}
+    </body>
+   
     </>
   )
 }
