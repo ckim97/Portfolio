@@ -26,7 +26,6 @@ function App() {
       <NavBar className="navbar"/>
     </header>
     <body>
-      <h1>Hello</h1>
       {renderProjects}
     </body>
    
